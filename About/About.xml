@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>TiberiumRim Core</name>
+	<packageId>telefonmast.tiberiumrim.core</packageId>
+	<author>Telefonmast, Nephlite</author>
+	<supportedVersions>
+		<li>1.4</li>
+	</supportedVersions>
+	<loadAfter>
+		<li>telefonmast.core</li>
+	</loadAfter>
+	<modDependencies>
+		<li>
+			<packageId>telefonmast.core</packageId>
+			<displayName>TeleCore</displayName>
+		</li>
+	</modDependencies>
+	<description>The shared content between all TiberiumRim mods.</description>
+</ModMetaData>
