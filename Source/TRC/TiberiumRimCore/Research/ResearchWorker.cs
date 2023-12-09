@@ -1,6 +1,6 @@
 ﻿using Verse;
 
-namespace TRC;
+namespace TR;
 
 /*  ResearchWorker is going to contain valuable data such as culprits for events
  *  ResearchWorkers can vary in their completion task

@@ -1,9 +1,8 @@
 ﻿using System.Linq;
 using RimWorld;
-using TRC;
 using Verse;
 
-namespace TRC;
+namespace TR;
 
 public class BaseEvent : IExposable
 {

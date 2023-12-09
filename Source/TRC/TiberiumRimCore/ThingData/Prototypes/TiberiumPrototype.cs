@@ -1,6 +1,6 @@
 ﻿using TeleCore.RWExtended;
 
-namespace TRC;
+namespace TR;
 
 public class TiberiumPrototype : TeleThing
 {

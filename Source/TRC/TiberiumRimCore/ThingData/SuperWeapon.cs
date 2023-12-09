@@ -1,7 +1,7 @@
 ﻿using RimWorld;
 using Verse;
 
-namespace TRC;
+namespace TR;
 
 public class SuperWeapon : IExposable
 {

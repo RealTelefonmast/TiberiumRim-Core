@@ -7,7 +7,7 @@ using RimWorld.Planet;
 using UnityEngine;
 using Verse;
 
-namespace TRC;
+namespace TR;
 
 public class TResearchManager : WorldComponent, IExposable //, ISynchronizable
 {

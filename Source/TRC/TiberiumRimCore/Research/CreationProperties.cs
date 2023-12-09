@@ -4,7 +4,7 @@ using System.Xml;
 using RimWorld;
 using Verse;
 
-namespace TRC
+namespace TR
 {
     public class CreationProperties
     {

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using TRC;
 using Verse;
 
 namespace TR;
@@ -103,6 +102,13 @@ public class Comp_MechStation : Comp_Upgradable, IMechGarage<MechanicalPawn>
         return (MechanicalPawn) GenSpawn.Spawn(mech, parent.InteractionCell, parent.Map);
     }
 
+}
+
+public class MechRecipeDef : Def
+{
+    public MechanicalPawnKindDef mechDef;
+    public List<ThingDefCountClass> costList;
+    public string graphicPath;
 }
 
 public class CompProperties_MechStation : CompProperties_Upgrade

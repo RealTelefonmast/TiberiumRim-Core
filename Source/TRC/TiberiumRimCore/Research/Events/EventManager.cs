@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using RimWorld.Planet;
 using Verse;
 
-namespace TRC;
+namespace TR;
 
 public class EventManager : WorldComponent
 {

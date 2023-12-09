@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using TR;
 using Verse;
 
-namespace TRC
+namespace TR
 {
     public class RepairDroneKindDef : MechanicalPawnKindDef
     {

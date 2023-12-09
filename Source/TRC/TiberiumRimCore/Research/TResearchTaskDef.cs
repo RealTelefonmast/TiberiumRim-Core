@@ -6,7 +6,7 @@ using TeleCore;
 using UnityEngine;
 using Verse;
 
-namespace TRC;
+namespace TR;
 
 public class TResearchTaskDef : Def
 {
@@ -327,7 +327,7 @@ public class TResearchTaskDef : Def
         WidgetRow row = new WidgetRow(rect.xMax, rect.y, UIDirection.LeftThenDown, 9999f, 0);
 
         //Select To Construct
-        if (def.IsConstructible() && row.ButtonIcon(TiberiumContent.Construct, ""))
+        if (def.IsConstructible() && row.ButtonIcon(TRContent.Construct, ""))
         {
             //Find.MainTabsRoot.OpenTab.TabWindow.Close();
             //Find.MainTabsRoot.EscapeCurrentTab();
@@ -357,7 +357,7 @@ public class TResearchTaskDef : Def
         //Jump To Existing
         if (!allowJump || !TargetThings().Any()) return;
         var thing = TargetThings().Where(d => d.def == def);
-        if (thing.Any() && row.ButtonIcon(TiberiumContent.SelectThing, ""))
+        if (thing.Any() && row.ButtonIcon(TRContent.SelectThing, ""))
         {
             //if (!TargetThings().Any()) return;
             //Thing thing = TargetThings().RandomElement(); //FirstOrDefault(t => t.props == props); //Find.Maps.SelectMany(m => m.listerThings.ThingsOfDef(props)).RandomElement();

@@ -2,7 +2,7 @@
 using TeleCore.RWExtended;
 using Verse;
 
-namespace TRC;
+namespace TR;
 
 public class TRThingPrototype : TeleThing
 {

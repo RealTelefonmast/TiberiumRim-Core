@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using RimWorld;
-using TRC;
 using UnityEngine;
 using Verse;
 using Verse.AI;

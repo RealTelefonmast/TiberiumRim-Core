@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Verse;
 
-namespace TRC;
+namespace TR;
 
 public static class TRColor
 {

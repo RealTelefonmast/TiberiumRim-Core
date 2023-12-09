@@ -1,6 +1,6 @@
 ﻿using Verse;
 
-namespace TRC
+namespace TR
 {
     public interface IMechGarage<T> where T : MechanicalPawn
     {

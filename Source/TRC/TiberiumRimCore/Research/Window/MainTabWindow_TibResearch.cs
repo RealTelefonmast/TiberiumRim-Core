@@ -4,7 +4,7 @@ using RimWorld;
 using UnityEngine;
 using Verse;
 
-namespace TRC;
+namespace TR;
 
 public enum ResearchTabOption
 {

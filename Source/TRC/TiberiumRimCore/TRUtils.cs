@@ -9,13 +9,23 @@ using TeleCore;
 using UnityEngine;
 using Verse;
 
-namespace TRC;
+namespace TR;
 
 public static class TRUtils
 {
+    public static WorldComponent_TR Tiberium()
+    {
+        return Find.World.GetComponent<WorldComponent_TR>();
+    }
+    
+    public static GameComponent_TR TiberiumRim()
+    {
+        return Current.Game.GetComponent<GameComponent_TR>();
+    }
+    
     public static ResearchDiscoveryTable ResearchDiscoveryTable()
     {
-        return Tiberium().ResearchDiscoveryTable;
+        return TiberiumRim().ResearchDiscoveryTable;
     }
 
     public static EventManager EventManager()
@@ -60,7 +70,7 @@ public static class TRUtils
 
     public static string GetModRootDirectory()
     {
-        TiberiumRimMod mod = LoadedModManager.GetMod<TiberiumRimMod>();
+        TiberiumCoreMod mod = LoadedModManager.GetMod<TiberiumCoreMod>();
         if (mod == null)
         {
             TRLog.Error("LoadedModManager.GetMod<TiberiumRimMod>() failed");
@@ -79,45 +89,7 @@ public static class TRUtils
 
         return label;
     }
-
-    public static ThingDef GetWrappedCorpseDef(this Corpse corpse)
-    {
-        ThingDef thingDef = corpse.def;
-        ThingDef d = new ThingDef();
-        d.category = ThingCategory.Item;
-        d.thingClass = typeof(WrappedCorpse);
-        d.selectable = true;
-        d.tickerType = TickerType.Normal;
-        d.altitudeLayer = AltitudeLayer.ItemImportant;
-        d.scatterableOnMapGen = false;
-        d.SetStatBaseValue(StatDefOf.Beauty, -50f);
-        d.SetStatBaseValue(StatDefOf.DeteriorationRate, 1f);
-        d.SetStatBaseValue(StatDefOf.FoodPoisonChanceFixedHuman, 0.05f);
-        d.alwaysHaulable = true;
-        d.soundDrop = SoundDefOf.Corpse_Drop;
-        d.pathCost = DefGenerator.StandardItemPathCost;
-        d.socialPropernessMatters = false;
-        d.tradeability = Tradeability.None;
-        d.messageOnDeteriorateInStorage = false;
-        d.inspectorTabs = new List<Type>(thingDef.inspectorTabs);
-        d.modContentPack = thingDef.modContentPack;
-        d.ingestible = thingDef.ingestible;
-        d.comps.AddRange(thingDef.comps);
-        d.comps.Add(new CompProperties_Forbiddable());
-        d.recipes = new List<RecipeDef>(thingDef.recipes);
-        d.defName = "Wrapped_" + corpse.def.defName;
-        d.label = thingDef.label;
-        d.description = thingDef.description;
-        d.soundImpactDefault = thingDef.soundImpactDefault;
-        d.SetStatBaseValue(StatDefOf.MarketValue, thingDef.GetStatValueAbstract(StatDefOf.MarketValue));
-        d.SetStatBaseValue(StatDefOf.Flammability, thingDef.GetStatValueAbstract(StatDefOf.Flammability));
-        d.SetStatBaseValue(StatDefOf.MaxHitPoints, thingDef.GetStatValueAbstract(StatDefOf.MaxHitPoints));
-        d.SetStatBaseValue(StatDefOf.Mass, thingDef.GetStatValueAbstract(StatDefOf.Mass));
-        d.SetStatBaseValue(StatDefOf.Nutrition, thingDef.GetStatValueAbstract(StatDefOf.Nutrition));
-        d.thingCategories = new List<ThingCategoryDef>(thingDef.thingCategories);
-        return d;
-    }
-
+    
     public static bool IsConductive(this Thing thing)
     {
         if (thing.IsMetallic()) return true;
@@ -154,55 +126,6 @@ public static class TRUtils
     {
         if (list == null) return 0;
         return list.Select(t => t.StatOffsetForStat(stat, pawn)).Sum();
-    }
-
-    public static void GetTiberiumMutant(Pawn pawn, out Graphic Head, out Graphic Body)
-    {
-        Head = null;
-        Body = null;
-        if (pawn.def.defName != "Human")
-        {
-            PawnGraphicSet graphicSet = pawn.Drawer.renderer.graphics;
-            string headPath = graphicSet.headGraphic.path + "_TibHead";
-            string bodyPath = graphicSet.nakedGraphic.path + "_TibBody";
-            Head = GraphicDatabase.Get(typeof(Graphic_Multi), headPath, ShaderDatabase.Cutout, Vector2.one, Color.white,
-                Color.white);
-            Body = GraphicDatabase.Get(typeof(Graphic_Multi), bodyPath, ShaderDatabase.Cutout, Vector2.one, Color.white,
-                Color.white);
-        }
-        else
-        {
-            HeadTypeDef head = pawn.story.headType;
-            string headPath = head.graphicPath;
-            string headResolved;
-            BodyTypeDef body = pawn.story.bodyType;
-            string bodyResolved;
-            Gender gender = pawn.gender;
-
-            string appendix = "";
-            if (headPath.Contains("_Wide"))
-            {
-                appendix = "_Wide";
-            }
-
-            if (headPath.Contains("_Normal"))
-            {
-                appendix = "_Normal";
-            }
-
-            if (headPath.Contains("_Pointy"))
-            {
-                appendix = "_Pointy";
-            }
-
-            headResolved = "Pawns/TiberiumMutant/Heads/" + gender + "_" + head + appendix;
-            //Head = GraphicDatabase.Get(typeof(Graphic_Multi), headResolved, ShaderDatabase.MoteGlow, Vector2.one, Color.white, Color.white);
-            Head = GraphicDatabase.Get(typeof(Graphic_Multi), "Pawns/TiberiumMutant/Heads/Mutant_head",
-                ShaderDatabase.Cutout, Vector2.one, Color.white, Color.white);
-            bodyResolved = "Pawns/TiberiumMutant/Bodies/" + body.defName;
-            Body = GraphicDatabase.Get(typeof(Graphic_Multi), bodyResolved, ShaderDatabase.Cutout, Vector2.one,
-                Color.white, Color.white);
-        }
     }
 
     public static Pawn NewBorn(PawnKindDef kind, Faction faction = null,

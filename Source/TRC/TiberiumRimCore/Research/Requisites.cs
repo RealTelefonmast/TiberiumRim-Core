@@ -2,7 +2,7 @@
 using System.Linq;
 using Verse;
 
-namespace TRC;
+namespace TR;
 
 public class Requisites
 {

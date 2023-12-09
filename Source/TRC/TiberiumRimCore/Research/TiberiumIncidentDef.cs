@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using RimWorld;
 
-namespace TRC
+namespace TR
 {
     public class TiberiumIncidentDef : IncidentDef
     {

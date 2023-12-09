@@ -1,4 +1,4 @@
-﻿namespace TRC.Vehicles;
+﻿namespace TR.Vehicles;
 
 public class Vehicle : TRThingPrototype
 {

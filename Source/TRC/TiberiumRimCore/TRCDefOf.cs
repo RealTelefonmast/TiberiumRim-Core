@@ -2,7 +2,7 @@
 using TeleCore;
 using Verse;
 
-namespace TRC;
+namespace TR;
 
 [DefOf]
 public class TRCDefOf
@@ -19,4 +19,7 @@ public class TRCDefOf
     
     //
     public static StatDef ExtraCarryWeight;
+    
+    //
+    public static JobDef TiberiumResearch;
 }

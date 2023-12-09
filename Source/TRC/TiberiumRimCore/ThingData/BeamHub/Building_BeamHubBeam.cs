@@ -1,6 +1,6 @@
 ﻿using Verse;
 
-namespace TRC.BeamHub
+namespace TR
 {
     public class Building_BeamHubBeam : Building
     {

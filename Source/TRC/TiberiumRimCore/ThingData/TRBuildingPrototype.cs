@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using RimWorld;
+using TeleCore;
 using TeleCore.RWExtended;
 using Verse;
 
-namespace TRC;
+namespace TR;
 
 public class TRBuildingPrototype : TeleBuilding
 {

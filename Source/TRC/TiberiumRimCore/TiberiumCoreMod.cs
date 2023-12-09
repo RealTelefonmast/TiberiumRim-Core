@@ -2,29 +2,30 @@
 using System.Reflection;
 using System.Runtime.InteropServices;
 using HarmonyLib;
-using RimWorld;
 using UnityEngine;
 using Verse;
 
-namespace TRC;
+namespace TR;
 
-public class TRCoreMod : Mod
+public class TiberiumCoreMod : Mod
 {
     //Static Data
-    public static TRCoreMod mod;
+    public static TiberiumCoreMod mod;
     private static Harmony tiberium;
 
     //
     public static bool isDebug = true;
 
     public static Harmony Tiberium => tiberium ??= new Harmony("telefonmast.tiberiumrim.core");
+    public static TiberiumCoreSettings CoreSettings => (TiberiumCoreSettings) mod.modSettings;
     
-
-    public TRCoreMod(ModContentPack content) : base(content)
+    public TiberiumCoreMod(ModContentPack content) : base(content)
     {
         mod = this;
         var version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
         TRLog.Message($"[TiberiumRim][{version}] - Init", Color.cyan);
+        modSettings = GetSettings<TiberiumCoreSettings>();
+        
         Tiberium.PatchAll(Assembly.GetExecutingAssembly());
     }
     

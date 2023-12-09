@@ -1,4 +1,4 @@
-﻿namespace TRC;
+﻿namespace TR;
 
 public enum ResearchState
 {

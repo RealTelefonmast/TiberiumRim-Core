@@ -1,7 +1,7 @@
 ﻿using System;
 using Verse;
 
-namespace TRC;
+namespace TR;
 
 public class SuperWeaponProperties
 {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using TeleCore;
 
-namespace TRC
+namespace TR
 {
     public enum SpawnMode
     {

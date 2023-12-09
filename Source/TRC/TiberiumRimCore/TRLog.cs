@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Verse;
 
-namespace TRC;
+namespace TR;
 
 public static class TRLog
 {
@@ -43,7 +43,7 @@ public static class TRLog
 
     public static void Debug(string msg, bool flag = true)
     {
-        if (TRCoreMod.isDebug && flag)
+        if (TiberiumCoreMod.isDebug && flag)
         {
             Log.Message($"{"[TR-Debug]".Colorize(TRColor.Green)} {msg}");
         }

@@ -6,7 +6,7 @@ using UnityEngine;
 using Verse;
 using Verse.Sound;
 
-namespace TRC;
+namespace TR;
 
 public class SubWindow_Projects
 {
@@ -219,7 +219,7 @@ public class SubWindow_Projects
             {
                 float margin = (researchOptionSize.y - 24f) / 2;
                 WidgetRow row = new WidgetRow(researchOptionXOffset + margin, curY + margin, UIDirection.RightThenDown);
-                row.Icon(project.HasBeenSeen ? ProjectStatusTexture(project.State) : TiberiumContent.UnseenResearch);
+                row.Icon(project.HasBeenSeen ? ProjectStatusTexture(project.State) : TRContent.UnseenResearch);
                 row.Label(project.LabelCap);
 
                 var projectOptionRect =
@@ -425,7 +425,7 @@ public class SubWindow_Projects
 
 
 
-        Widgets.FillableBar(ProgressBarRect, task.ProgressPct, TRMats.blue, TRMats.black, true);
+        Widgets.FillableBar(ProgressBarRect, task.ProgressPct, TRCMats.blue, TRCMats.black, true);
         Text.Anchor = TextAnchor.MiddleCenter;
         Widgets.Label(ProgressBarRect, task.WorkLabel);
         Text.Anchor = default;
@@ -465,9 +465,9 @@ public class SubWindow_Projects
             Widgets.Label(imageCountRect, imageCount);
             if (curImage > 0)
             {
-                UI.RotateAroundPivot(180f, ImageButtonLeft.center);
-                Widgets.DrawTextureFitted(ImageButtonLeft, TiberiumContent.SideBarArrow, 1f);
-                UI.RotateAroundPivot(180f, ImageButtonLeft.center);
+                Verse.UI.RotateAroundPivot(180f, ImageButtonLeft.center);
+                Widgets.DrawTextureFitted(ImageButtonLeft, TRContent.SideBarArrow, 1f);
+                Verse.UI.RotateAroundPivot(180f, ImageButtonLeft.center);
                 if (Widgets.ButtonInvisible(ImageButtonLeft, true))
                 {
                     SoundDefOf.TabClose.PlayOneShotOnCamera(null);
@@ -477,7 +477,7 @@ public class SubWindow_Projects
 
             if (curImage < texts.Count - 1)
             {
-                Widgets.DrawTextureFitted(ImageButtonRight, TiberiumContent.SideBarArrow, 1f);
+                Widgets.DrawTextureFitted(ImageButtonRight, TRContent.SideBarArrow, 1f);
                 if (Widgets.ButtonInvisible(ImageButtonRight, true))
                 {
                     SoundDefOf.TabOpen.PlayOneShotOnCamera(null);
@@ -531,8 +531,8 @@ public class SubWindow_Projects
         return state switch
         {
             ResearchState.Finished => Widgets.CheckboxOnTex,
-            ResearchState.InProgress => TiberiumContent.Research_Active,
-            ResearchState.Available => TiberiumContent.Research_Available,
+            ResearchState.InProgress => TRContent.Research_Active,
+            ResearchState.Available => TRContent.Research_Available,
             _ => BaseContent.BadTex
         };
     }

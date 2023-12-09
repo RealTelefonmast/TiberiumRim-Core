@@ -2,10 +2,9 @@
 using System.Linq;
 using RimWorld;
 using TeleCore;
-using TeleCore.Network;
 using Verse;
 
-namespace TRC;
+namespace TR;
 
 public class MechanicalPawn : FXPawn
 {

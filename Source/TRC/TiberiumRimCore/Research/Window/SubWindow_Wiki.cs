@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TRC;
+namespace TR;
 
 public class SubWindow_Wiki
 {

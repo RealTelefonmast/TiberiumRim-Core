@@ -1,6 +1,6 @@
 ﻿using RimWorld;
 
-namespace TRC
+namespace TR
 {
     public class Alert_NewResearch : Alert
     {

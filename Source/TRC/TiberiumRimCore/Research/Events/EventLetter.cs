@@ -2,7 +2,7 @@
 using System.Linq;
 using Verse;
 
-namespace TRC;
+namespace TR;
 
 public class EventLetter : StandardLetter
 {
@@ -43,7 +43,7 @@ public class EventLetter : StandardLetter
             {
                 action = delegate
                 {
-                    Find.MainTabsRoot.SetCurrentTab(TiberiumDefOf.TiberiumTab);
+                    Find.MainTabsRoot.SetCurrentTab(TRCDefOf.TiberiumTab);
                     var researchWindow = (MainTabWindow_TibResearch) Find.MainTabsRoot.OpenTab.TabWindow;
                     researchWindow.SelTab = ResearchTabOption.Projects;
                     var proj = events.First(e => !e.unlocksResearch.NullOrEmpty()).unlocksResearch.First();

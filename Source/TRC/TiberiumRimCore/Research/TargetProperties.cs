@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Verse;
 
-namespace TRC
+namespace TR
 {
     public class TargetProperties
     {

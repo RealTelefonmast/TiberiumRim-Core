@@ -2,7 +2,7 @@
 using System.Text;
 using Verse;
 
-namespace TRC.BeamHub
+namespace TR
 {
     public class Building_BeamHubSegmentPart : Building
     {

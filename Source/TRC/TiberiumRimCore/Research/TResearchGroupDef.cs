@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Verse;
 
-namespace TRC;
+namespace TR;
 
 public class TResearchGroupDef : Def
 {

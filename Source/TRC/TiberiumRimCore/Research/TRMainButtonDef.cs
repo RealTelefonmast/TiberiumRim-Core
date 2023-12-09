@@ -2,20 +2,19 @@
 using UnityEngine;
 using Verse;
 
-namespace TRC
-{
-    public class TRMainButtonDef : MainButtonDef
-    {
-        [Unsaved(false)] private Texture2D specialIcon;
-        public string specialIconPath;
+namespace TR;
 
-        public Texture2D SpecialIcon
+public class TRMainButtonDef : MainButtonDef
+{
+    [Unsaved(false)] private Texture2D specialIcon;
+    public string specialIconPath;
+
+    public Texture2D SpecialIcon
+    {
+        get
         {
-            get
-            {
-                if (specialIconPath == null) return null;
-                return specialIcon ??= ContentFinder<Texture2D>.Get(specialIconPath, false);
-            }
+            if (specialIconPath == null) return null;
+            return specialIcon ??= ContentFinder<Texture2D>.Get(specialIconPath, false);
         }
     }
 }

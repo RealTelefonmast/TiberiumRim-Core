@@ -76,7 +76,7 @@
 			<Steel>20</Steel>
 		</costList>
 		<placeWorkers>
-			<li>TR.PlaceWorker_WallLight</li>
+			<li>TeleCore.PlaceWorker_WallLight</li>
 		</placeWorkers>
 	</TR.TRThingDef>
 	

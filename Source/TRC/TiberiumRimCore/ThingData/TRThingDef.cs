@@ -4,7 +4,7 @@ using System.Text;
 using RimWorld;
 using Verse;
 
-namespace TRC;
+namespace TR;
 
 public class TRThingDef : ThingDef
 {
