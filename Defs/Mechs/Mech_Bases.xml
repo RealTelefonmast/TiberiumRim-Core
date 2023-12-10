@@ -60,46 +60,6 @@
 		</race>
 	</ThingDef>
 	
-	<ThingDef Name="HarvesterBase" ParentName="BaseMechanoidTR" Abstract="True">
-		<thingClass>TR.Harvester</thingClass>
-		<!--
-		<statBases>
-			<TiberiumInfectionResistance>1</TiberiumInfectionResistance>
-			<TiberiumGasResistance>1</TiberiumGasResistance>
-			<TiberiumRadiationResistance>1</TiberiumRadiationResistance>
-		</statBases>
-		-->
-		<race>
-			<thinkTreeMain>HarvesterMain</thinkTreeMain>
-			<thinkTreeConstant>HarvesterConstant</thinkTreeConstant>
-			<baseBodySize>4</baseBodySize>
-			<baseHealthScale>1</baseHealthScale>
-		</race>
-		<tools>
-			<li>
-				<label>collector arm</label>
-				<capacities>
-					<li>Cut</li>
-				</capacities>
-				<power>8</power>
-				<cooldownTime>2.5</cooldownTime>
-				<linkedBodyPartsGroup>LeftArm</linkedBodyPartsGroup>
-				<chanceFactor>0.4</chanceFactor>
-			</li>
-			<li>
-				<label>collector arm</label>
-				<capacities>
-					<li>Cut</li>
-				</capacities>
-				<power>8</power>
-				<cooldownTime>2.5</cooldownTime>
-				<linkedBodyPartsGroup>RightArm</linkedBodyPartsGroup>
-				<chanceFactor>0.4</chanceFactor>
-			</li>
-		</tools>
-
-	</ThingDef>
-	
 	<ThingDef Name="RepairDroneBase" ParentName="BaseMechanoidTR" Abstract="True">
 		<thingClass>TR.RepairDrone</thingClass>
 		<verbs>
