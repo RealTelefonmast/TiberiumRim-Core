@@ -4,6 +4,7 @@
 	<TiberiumRim.TRThingDef Name="BuildingBase_TR" Abstract="True">
 		<category>Building</category>
 		<thingClass>TR.TRBuildingPrototype</thingClass>
+		<designationCategory>TiberiumBuildings</designationCategory>
 		<soundImpactDefault>BulletImpact_Ground</soundImpactDefault>
 		<selectable>true</selectable>
 		<drawerType>MapMeshOnly</drawerType>

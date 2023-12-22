@@ -2,7 +2,7 @@
 <Defs>
 
 	<TeleCore.SubMenuDesignationCategoryDef>
-		<defName>TiberiumMenuDesignator</defName>
+		<defName>TiberiumBuildings</defName>
 		<label>TiberiumRim</label>
 		<order>1</order>
 		<menuDef>TiberiumMenu</menuDef>
@@ -25,7 +25,7 @@
 		<visWorker>TR.SubMenuVisibilityWorkerTR</visWorker>
 		<superPackPath>UI/Menu/Faction/Common</superPackPath>
 	</TeleCore.SubBuildMenuDef>
-	
+
 	<TeleCore.SubMenuGroupDef Abstract="True" Name="TR_SubThingGroupBase">
 		<parentDef>TiberiumMenu</parentDef>
 		<subCategories>
@@ -37,7 +37,15 @@
 			<li>Misc</li>
 		</subCategories>
 	</TeleCore.SubMenuGroupDef>
-	
+
+	<TeleCore.SubMenuGroupDef ParentName="TR_SubThingGroupBase">
+		<defName>Common</defName>
+		<subCategories Inherit="True">
+			<li>Pollution</li>
+		</subCategories>
+		<groupIconPath>UI/Icons/Factions/Common</groupIconPath>
+	</TeleCore.SubMenuGroupDef>
+
 	<!-- Categories -->
 	<TeleCore.SubMenuCategoryDef>
 		<defName>Structure</defName>

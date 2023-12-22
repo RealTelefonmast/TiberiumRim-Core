@@ -13,9 +13,9 @@
 		<drawGUIOverlay>true</drawGUIOverlay>
 		<repairEffect>Repair</repairEffect>
 		<statBases>
-			<TiberiumInfectionResistance>1</TiberiumInfectionResistance>
-			<TiberiumGasResistance>1</TiberiumGasResistance>
-			<TiberiumRadiationResistance>1</TiberiumRadiationResistance>
+			<TiberiumInfectionResistance MayRequire="telefonmast.tiberiumrim.main">1</TiberiumInfectionResistance>
+			<TiberiumGasResistance MayRequire="telefonmast.tiberiumrim.main">1</TiberiumGasResistance>
+			<TiberiumRadiationResistance MayRequire="telefonmast.tiberiumrim.main">1</TiberiumRadiationResistance>
 			<ToxicResistance>1</ToxicResistance>
 			<Flammability>0.35</Flammability>
 			<ComfyTemperatureMin>-100</ComfyTemperatureMin>

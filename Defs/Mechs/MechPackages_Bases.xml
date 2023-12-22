@@ -2,7 +2,7 @@
 <Defs>
 
 	<TR.TRThingDef Name="MechPackageBase" Abstract="True">
-		<thingClass>TR.TRThing</thingClass>
+		<thingClass>Thing</thingClass>
 		<category>Item</category>
 		<selectable>true</selectable>
 		<tickerType>Never</tickerType>

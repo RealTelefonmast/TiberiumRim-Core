@@ -11,7 +11,7 @@ public class TRCDefOf
     public static TRMainButtonDef TiberiumTab;
 
     //DesignationCategory
-    public static SubMenuDesignationCategoryDef TiberiumMenuDesignator;
+    public static SubMenuDesignationCategoryDef TiberiumBuildings;
     
     //
     public static LetterDef EventLetter;
