@@ -86,4 +86,5 @@ public class WorkGiver_TResearch : WorkGiver_Scanner
     {
         return t.Thing.GetStatValue(CurrentTask.RelevantPawnStat ?? StatDefOf.ResearchSpeedFactor, true);
     }
+    
 }
