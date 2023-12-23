@@ -2,6 +2,7 @@
 using System.Linq;
 using RimWorld;
 using TeleCore;
+using TeleCore.Data.Events;
 using Verse;
 
 namespace TR;
@@ -25,6 +26,9 @@ public class ResearchTargetTable : IExposable
                     tasksForThings.Add(thingDef, new List<TResearchTaskDef>(){task});
             }
         }
+        
+        GlobalEventHandler.ThingSpawned += RegisterNewTarget;
+        GlobalEventHandler.ThingDespawned += DeregisterTarget;
     }
 
     public void ExposeData()
@@ -65,8 +69,15 @@ public class ResearchTargetTable : IExposable
         return targets[task].Where(Available);
     }
 
-    public void RegisterNewTarget(Thing thing)
+    private void RegisterNewTarget(ThingStateChangedEventArgs args)
     {
+        var thing = args.Thing;
+     
+        if (thing is Building b && (b.Faction?.IsPlayer ?? false))
+        {
+            TRUtils.ResearchCreationTable().TryTrackConstructedOrClaimedBuilding(b.def);
+        }
+        
         if (!tasksForThings.TryGetValue(thing.def, out var tasks)) return;
         foreach (var task in tasks)
         {
@@ -84,8 +95,9 @@ public class ResearchTargetTable : IExposable
         }
     }
 
-    public void DeregisterTarget(Thing thing)
+    private void DeregisterTarget(ThingStateChangedEventArgs args)
     {
+        var thing = args.Thing;
         if (!tasksForThings.ContainsKey(thing.def)) return;
         foreach (var task in tasksForThings[thing.def])
         {

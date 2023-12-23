@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using RimWorld.Planet;
+using TeleCore.Data.Events;
 using Verse;
 
 namespace TR;
@@ -14,6 +15,7 @@ public class EventManager : WorldComponent
     public EventManager(World world) : base(world)
     {
         newEvents = DefDatabase<EventDef>.AllDefsListForReading;
+        GlobalEventHandler.ThingSpawned += CheckForEventStart;
     }
 
     public override void ExposeData()
@@ -37,14 +39,14 @@ public class EventManager : WorldComponent
         }
     }
 
-    public void CheckForEventStart<T>(T trigger)
+    private void CheckForEventStart(ThingStateChangedEventArgs args)
     {
         if (newEvents.NullOrEmpty()) return;
         for (var i = newEvents.Count - 1; i >= 0; i--)
         {
             var newEvent = newEvents[i];
             if (newEvent.triggerProps == null) continue;
-            if (newEvent.triggerProps.TriggersEvent(trigger, out LookTargets targets))
+            if (newEvent.triggerProps.TriggersEvent(args.Thing, out LookTargets targets))
             {
                 StartEvent(newEvent, targets);
             }
