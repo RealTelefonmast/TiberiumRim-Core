@@ -22,4 +22,7 @@ public class TRCDefOf
     
     //
     public static JobDef TiberiumResearch;
+    
+    //FleshTypes
+    public static FleshTypeDef Mechanical;
 }

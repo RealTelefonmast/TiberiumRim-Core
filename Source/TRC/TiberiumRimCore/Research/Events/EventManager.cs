@@ -16,8 +16,9 @@ public class EventManager : WorldComponent
     {
         newEvents = DefDatabase<EventDef>.AllDefsListForReading;
         GlobalEventHandler.ThingSpawned += CheckForEventStart;
+        GlobalEventHandler.PawnHediffChanged += CheckForEventStartHediff;
     }
-
+    
     public override void ExposeData()
     {
         base.ExposeData();
@@ -39,6 +40,20 @@ public class EventManager : WorldComponent
         }
     }
 
+    private void CheckForEventStartHediff(PawnHediffChangedEventArgs args)
+    {
+        if (newEvents.NullOrEmpty()) return;
+        for (var i = newEvents.Count - 1; i >= 0; i--)
+        {
+            var newEvent = newEvents[i];
+            if (newEvent.triggerProps == null) continue;
+            if (newEvent.triggerProps.TriggersEvent(args.Hediff, out LookTargets targets))
+            {
+                StartEvent(newEvent, targets);
+            }
+        }
+    }
+    
     private void CheckForEventStart(ThingStateChangedEventArgs args)
     {
         if (newEvents.NullOrEmpty()) return;

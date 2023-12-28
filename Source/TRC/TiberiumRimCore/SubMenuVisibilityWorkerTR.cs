@@ -11,6 +11,11 @@ public class SubMenuVisibilityWorkerTR : SubMenuVisibilityWorker
         {
             return trDef.IsActive(out var reason);
         }
+
+        if (def is TerrainDef terrDef)
+        {
+            return terrDef.IsResearchFinished && terrDef.HasResearchExtension(out var research) && research.IsFinished;
+        }
         return base.IsAllowed(def);
     }
 }

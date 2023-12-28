@@ -317,4 +317,10 @@ public static class TRUtils
 
         return sb.ToString().TrimEndNewlines();
     }
+    
+    public static bool HasResearchExtension(this Def def, out ResearchModExtension research)
+    {
+        research = def.GetModExtension<ResearchModExtension>();
+        return research != null;
+    }
 }
