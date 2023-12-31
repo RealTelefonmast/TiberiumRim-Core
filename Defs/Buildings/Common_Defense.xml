@@ -26,7 +26,7 @@
 			<WorkToBuild>800</WorkToBuild>
 			<Mass>20</Mass>
 			<Flammability>1.0</Flammability>
-			<Beauty>-18</Beauty>
+			<Beauty>-5</Beauty>
 		</statBases>
 		<size>(4,4)</size>
 		<inspectorTabs>
@@ -52,9 +52,10 @@
 		</modExtensions>
 	</TR.TRThingDef>
 	
+<!-- Unnecessary building
 	<TR.TRThingDef ParentName="DronePlatform">
-		<defName>RepairDronePlatform</defName>
-		<label>repair drone platform</label>
+		<defName>RepairDronePlatformL</defName>
+		<label>repair drone platform (Large)</label>
 		<graphicData>
 			<texPath>Buildings/Common/Misc/DronePlatform</texPath>
 			<drawSize>(4,4)</drawSize>
@@ -106,30 +107,30 @@
 				<factorByDifficulty>true</factorByDifficulty>
 				<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
 				<outOfFuelMessage>Cannot use drones.</outOfFuelMessage>
-				<!--TODO: Make icon for missing building-resources-->
 				<fuelIconPath>UI/Overlays/Barrel</fuelIconPath>
 			</li>
 		</comps>
-	</TR.TRThingDef>	
+	</TR.TRThingDef>
+-->	
 	
 	<TR.TRThingDef ParentName="DronePlatform">
-		<defName>RepairDronePlatformSmall</defName>
-		<label>repair drone platform (small)</label>
+		<defName>RepairDronePlatformS</defName>
+		<label>repair drone platform</label>
 		<graphicData>
 			<texPath>Buildings/Common/Misc/DronePlatform_Small</texPath>
 			<drawSize>(1.75,1.75)</drawSize>
 		</graphicData>
 		<size>(1,1)</size>
 		<statBases>
-			<MaxHitPoints>100</MaxHitPoints>
-			<WorkToBuild>800</WorkToBuild>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>2000</WorkToBuild>
 			<Mass>20</Mass>
 			<Flammability>1.0</Flammability>
-			<Beauty>-18</Beauty>
+			<Beauty>-5</Beauty>
 		</statBases>
 		<costList>
-			<Steel>40</Steel>
-			<ComponentIndustrial>4</ComponentIndustrial>
+			<Steel>75</Steel>
+			<ComponentIndustrial>3</ComponentIndustrial>
 		</costList>
 		<comps>
 			<li Class="TR.CompProperties_DroneStation">
@@ -140,7 +141,7 @@
 				<mechCapacity>1</mechCapacity>
 				<garageCapacity>1</garageCapacity>
 				<renderSize>1</renderSize>
-				<radius>4</radius>
+				<radius>10</radius>
 			</li>
 			<li Class="CompProperties_Refuelable">
 				<fuelLabel>Resource Pool</fuelLabel>
