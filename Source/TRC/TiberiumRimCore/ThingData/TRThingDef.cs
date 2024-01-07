@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text;
 using RimWorld;
+using TeleCore;
 using Verse;
 
 namespace TR;
@@ -36,6 +37,11 @@ public class TRThingDef : ThingDef
         List<string> strings = new List<string>();
         strings.AddRange(base.ConfigErrors());
 
+        if (thingClass == typeof(Building_TeleTurret))
+        {
+            
+        }
+        
         /*
         if (TRGroup == null)
         {

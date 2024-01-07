@@ -3,7 +3,7 @@
 
 	<ThingDef ParentName="MoteBase">
 		<defName>Mote_ObeliskBeam</defName>
-		<thingClass>MoteDualAttached</thingClass>
+		<thingClass>TeleCore.MoteBeam</thingClass>
 		<altitudeLayer>MoteOverhead</altitudeLayer>
 		<mote>
 			<fadeInTime>0.2</fadeInTime>
@@ -31,7 +31,7 @@
 
 	<ThingDef ParentName="MoteBase">
 		<defName>Mote_RailgunBeam</defName>
-		<thingClass>MoteDualAttached</thingClass>
+		<thingClass>TeleCore.MoteBeam</thingClass>
 		<altitudeLayer>MoteOverhead</altitudeLayer>
 		<mote>
 			<fadeInTime>0.2</fadeInTime>
@@ -59,7 +59,7 @@
 	
 	<ThingDef ParentName="MoteBase">
 		<defName>Mote_DisruptorBeam</defName>
-		<thingClass>MoteDualAttached</thingClass>
+		<thingClass>TeleCore.MoteBeam</thingClass>
 		<altitudeLayer>MoteOverhead</altitudeLayer>
 		<mote>
 			<fadeInTime>0.15</fadeInTime>
@@ -89,7 +89,7 @@
 	<!---->
 	<ThingDef ParentName="MoteBase">
 		<defName>Mote_NodGunBeam</defName>
-		<thingClass>MoteDualAttached</thingClass>
+		<thingClass>TeleCore.MoteBeam</thingClass>
 		<altitudeLayer>MoteOverhead</altitudeLayer>
 		<mote>
 			<fadeInTime>0.2</fadeInTime>
@@ -117,7 +117,7 @@
 	
 	<ThingDef ParentName="MoteBase">
 		<defName>Mote_NodGunStrongBeam</defName>
-		<thingClass>MoteDualAttached</thingClass>
+		<thingClass>TeleCore.MoteBeam</thingClass>
 		<altitudeLayer>MoteOverhead</altitudeLayer>
 		<mote>
 			<fadeInTime>0.05</fadeInTime>
@@ -146,7 +146,7 @@
 	<!---->
 	<ThingDef ParentName="MoteBase">
 		<defName>Mote_ScrinGunBeam</defName>
-		<thingClass>MoteDualAttached</thingClass>
+		<thingClass>TeleCore.MoteBeam</thingClass>
 		<altitudeLayer>MoteOverhead</altitudeLayer>
 		<mote>
 			<fadeInTime>0.05</fadeInTime>
@@ -174,7 +174,7 @@
 
 	<ThingDef ParentName="MoteBase">
 		<defName>Mote_ScrinGunStrongBeam</defName>
-		<thingClass>MoteDualAttached</thingClass>
+		<thingClass>TeleCore.MoteBeam</thingClass>
 		<altitudeLayer>MoteOverhead</altitudeLayer>
 		<mote>
 			<fadeInTime>0.05</fadeInTime>
@@ -202,7 +202,7 @@
 
 	<ThingDef ParentName="MoteBase">
 		<defName>Mote_ScrinLanceBeam</defName>
-		<thingClass>MoteDualAttached</thingClass>
+		<thingClass>TeleCore.MoteBeam</thingClass>
 		<altitudeLayer>MoteOverhead</altitudeLayer>
 		<mote>
 			<fadeInTime>0.05</fadeInTime>
