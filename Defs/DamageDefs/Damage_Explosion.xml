@@ -135,6 +135,26 @@
 		<explosionSnowMeltAmount>100</explosionSnowMeltAmount>
 		<soundExplosion>Blast_Rail</soundExplosion>
 	</DamageDef>
+	
+	<DamageDef ParentName="TRExplosionBase">
+		<defName>TRObeliskBlast</defName>
+		<label>cutting beam</label>
+		<isExplosive>false</isExplosive>
+		<deathMessage>{0} has been hit by a lethal beam.</deathMessage>
+		<hediff>Burn</hediff>
+		<makesBlood>false</makesBlood>
+		<harmAllLayersUntilOutside>false</harmAllLayersUntilOutside>
+		<impactSoundType>Bullet</impactSoundType>
+		<armorCategory>Heat</armorCategory>
+		<minDamageToFragment>1</minDamageToFragment>
+		<defaultDamage>1</defaultDamage>
+		<explosionAffectOutsidePartsOnly>true</explosionAffectOutsidePartsOnly>
+		<explosionCellFleck>Fleck_Smokeblack</explosionCellFleck>
+		<explosionColorCenter>(0.8, 0.3, 0.3, 0.5)</explosionColorCenter>
+		<explosionColorEdge>(0.8, 0.3, 3, 0)</explosionColorEdge>
+		<explosionSnowMeltAmount>100</explosionSnowMeltAmount>
+		<soundExplosion>Obelisk_Shot</soundExplosion>
+	</DamageDef>
 
 	<DamageDef ParentName="TRExplosionBase">
 		<defName>TRScrinBomb</defName>

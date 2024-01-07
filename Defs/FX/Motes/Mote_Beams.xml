@@ -6,9 +6,8 @@
 		<thingClass>TeleCore.MoteBeam</thingClass>
 		<altitudeLayer>MoteOverhead</altitudeLayer>
 		<mote>
-			<fadeInTime>0.2</fadeInTime>
-			<fadeOutTime>0.3</fadeOutTime>
-			<solidTime>999999</solidTime>
+			<fadeInTime>1.5</fadeInTime>
+			<fadeOutTime>1.5</fadeOutTime>
 			<needsMaintenance>True</needsMaintenance>
 			<rotateTowardsTarget>True</rotateTowardsTarget>
 			<scaleToConnectTargets>True</scaleToConnectTargets>
@@ -18,7 +17,7 @@
 		<graphicData>
 			<texPath>Items/Weapons/Projectile/Bullet_ObeliskBeam</texPath>
 			<graphicClass>Graphic_MoteWithAgeSecs</graphicClass>
-			<shaderType>MoteBeam</shaderType>
+			<shaderType>MoteGlow</shaderType>
 			<shaderParameters>
 				<_ExtraTexA>/Things/Mote/BeamSecondaryNoise_A</_ExtraTexA>
 				<_ExtraTexB>/Things/Mote/BeamSecondaryNoise_B</_ExtraTexB>
@@ -34,9 +33,9 @@
 		<thingClass>TeleCore.MoteBeam</thingClass>
 		<altitudeLayer>MoteOverhead</altitudeLayer>
 		<mote>
-			<fadeInTime>0.2</fadeInTime>
-			<fadeOutTime>0.3</fadeOutTime>
-			<solidTime>999999</solidTime>
+			<fadeInTime>0.15</fadeInTime>
+			<fadeOutTime>1.5</fadeOutTime>
+			<solidTime>0</solidTime>
 			<needsMaintenance>True</needsMaintenance>
 			<rotateTowardsTarget>True</rotateTowardsTarget>
 			<scaleToConnectTargets>True</scaleToConnectTargets>
@@ -46,7 +45,7 @@
 		<graphicData>
 			<texPath>Items/Weapons/Projectile/Bullet_Railshot</texPath>
 			<graphicClass>Graphic_MoteWithAgeSecs</graphicClass>
-			<shaderType>MoteBeam</shaderType>
+			<shaderType>MoteGlow</shaderType>
 			<shaderParameters>
 				<_ExtraTexA>/Things/Mote/BeamSecondaryNoise_A</_ExtraTexA>
 				<_ExtraTexB>/Things/Mote/BeamSecondaryNoise_B</_ExtraTexB>
@@ -62,9 +61,9 @@
 		<thingClass>TeleCore.MoteBeam</thingClass>
 		<altitudeLayer>MoteOverhead</altitudeLayer>
 		<mote>
-			<fadeInTime>0.15</fadeInTime>
+			<fadeInTime>0.5</fadeInTime>
 			<fadeOutTime>1.5</fadeOutTime>
-			<solidTime>999999</solidTime>
+			<solidTime>0</solidTime>
 			<needsMaintenance>True</needsMaintenance>
 			<rotateTowardsTarget>True</rotateTowardsTarget>
 			<scaleToConnectTargets>True</scaleToConnectTargets>
@@ -74,7 +73,7 @@
 		<graphicData>
 			<texPath>Items/Weapons/Projectile/TestBeam3</texPath>
 			<graphicClass>Graphic_MoteWithAgeSecs</graphicClass>
-			<shaderType>MoteBeam</shaderType>
+			<shaderType>MoteGlow</shaderType>
 			<drawSize>(1,1)</drawSize>
 			<shaderParameters>
 				<_ExtraTexA>/Things/Mote/BeamSecondaryNoise_A</_ExtraTexA>
@@ -93,8 +92,8 @@
 		<altitudeLayer>MoteOverhead</altitudeLayer>
 		<mote>
 			<fadeInTime>0.2</fadeInTime>
-			<fadeOutTime>0.3</fadeOutTime>
-			<solidTime>999999</solidTime>
+			<fadeOutTime>0.35</fadeOutTime>
+			<solidTime>0</solidTime>
 			<needsMaintenance>True</needsMaintenance>
 			<rotateTowardsTarget>True</rotateTowardsTarget>
 			<scaleToConnectTargets>True</scaleToConnectTargets>
@@ -104,7 +103,7 @@
 		<graphicData>
 			<texPath>Items/Weapons/Projectile/Bullet_Nod_LaserBeam</texPath>
 			<graphicClass>Graphic_MoteWithAgeSecs</graphicClass>
-			<shaderType>MoteBeam</shaderType>
+			<shaderType>MoteGlow</shaderType>
 			<shaderParameters>
 				<_ExtraTexA>/Things/Mote/BeamSecondaryNoise_A</_ExtraTexA>
 				<_ExtraTexB>/Things/Mote/BeamSecondaryNoise_B</_ExtraTexB>
@@ -120,9 +119,9 @@
 		<thingClass>TeleCore.MoteBeam</thingClass>
 		<altitudeLayer>MoteOverhead</altitudeLayer>
 		<mote>
-			<fadeInTime>0.05</fadeInTime>
-			<fadeOutTime>0.35</fadeOutTime>
-			<solidTime>999999</solidTime>
+			<fadeInTime>0.2</fadeInTime>
+			<fadeOutTime>0.5</fadeOutTime>
+			<solidTime>0</solidTime>
 			<needsMaintenance>True</needsMaintenance>
 			<rotateTowardsTarget>True</rotateTowardsTarget>
 			<scaleToConnectTargets>True</scaleToConnectTargets>
@@ -132,7 +131,7 @@
 		<graphicData>
 			<texPath>Items/Weapons/Projectile/Bullet_Nod_LaserBeam_Heavy</texPath>
 			<graphicClass>Graphic_MoteWithAgeSecs</graphicClass>
-			<shaderType>MoteBeam</shaderType>
+			<shaderType>MoteGlow</shaderType>
 			<shaderParameters>
 				<_ExtraTexA>/Things/Mote/BeamSecondaryNoise_A</_ExtraTexA>
 				<_ExtraTexB>/Things/Mote/BeamSecondaryNoise_B</_ExtraTexB>
@@ -150,8 +149,8 @@
 		<altitudeLayer>MoteOverhead</altitudeLayer>
 		<mote>
 			<fadeInTime>0.05</fadeInTime>
-			<fadeOutTime>0.2</fadeOutTime>
-			<solidTime>999999</solidTime>
+			<fadeOutTime>0.25</fadeOutTime>
+			<solidTime>0</solidTime>
 			<needsMaintenance>True</needsMaintenance>
 			<rotateTowardsTarget>True</rotateTowardsTarget>
 			<scaleToConnectTargets>True</scaleToConnectTargets>
@@ -161,7 +160,7 @@
 		<graphicData>
 			<texPath>Items/Weapons/Projectile/Bullet_BeamScrin</texPath>
 			<graphicClass>Graphic_MoteWithAgeSecs</graphicClass>
-			<shaderType>MoteBeam</shaderType>
+			<shaderType>MoteGlow</shaderType>
 			<shaderParameters>
 				<_ExtraTexA>/Things/Mote/BeamSecondaryNoise_A</_ExtraTexA>
 				<_ExtraTexB>/Things/Mote/BeamSecondaryNoise_B</_ExtraTexB>
@@ -178,8 +177,8 @@
 		<altitudeLayer>MoteOverhead</altitudeLayer>
 		<mote>
 			<fadeInTime>0.05</fadeInTime>
-			<solidTime>999999</solidTime>
-			<fadeOutTime>0.5</fadeOutTime>
+			<solidTime>0</solidTime>
+			<fadeOutTime>0.6</fadeOutTime>
 			<needsMaintenance>True</needsMaintenance>
 			<rotateTowardsTarget>True</rotateTowardsTarget>
 			<scaleToConnectTargets>True</scaleToConnectTargets>
@@ -189,7 +188,7 @@
 		<graphicData>
 			<texPath>Items/Weapons/Projectile/Bullet_BeamScrin</texPath>
 			<graphicClass>Graphic_MoteWithAgeSecs</graphicClass>
-			<shaderType>MoteBeam</shaderType>
+			<shaderType>MoteGlow</shaderType>
 			<shaderParameters>
 				<_ExtraTexA>/Things/Mote/BeamSecondaryNoise_A</_ExtraTexA>
 				<_ExtraTexB>/Things/Mote/BeamSecondaryNoise_B</_ExtraTexB>
@@ -206,8 +205,8 @@
 		<altitudeLayer>MoteOverhead</altitudeLayer>
 		<mote>
 			<fadeInTime>0.05</fadeInTime>
-			<fadeOutTime>0.6</fadeOutTime>
-			<solidTime>999999</solidTime>
+			<fadeOutTime>0.65</fadeOutTime>
+			<solidTime>0</solidTime>
 			<needsMaintenance>True</needsMaintenance>
 			<rotateTowardsTarget>True</rotateTowardsTarget>
 			<scaleToConnectTargets>True</scaleToConnectTargets>
@@ -217,7 +216,7 @@
 		<graphicData>
 			<texPath>Items/Weapons/Projectile/Bullet_BeamScrin</texPath>
 			<graphicClass>Graphic_MoteWithAgeSecs</graphicClass>
-			<shaderType>MoteBeam</shaderType>
+			<shaderType>MoteGlow</shaderType>
 			<shaderParameters>
 				<_ExtraTexA>/Things/Mote/BeamSecondaryNoise_A</_ExtraTexA>
 				<_ExtraTexB>/Things/Mote/BeamSecondaryNoise_B</_ExtraTexB>
