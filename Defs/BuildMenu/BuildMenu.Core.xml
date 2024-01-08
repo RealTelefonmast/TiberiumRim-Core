@@ -30,10 +30,10 @@
 		<parentDef>TiberiumMenu</parentDef>
 		<subCategories>
 			<li>Structure</li>
-			<li>Decoration</li>
 			<li>Processing</li>
-			<li>Defense</li>
 			<li>Research</li>
+			<li>Defense</li>
+			<li>Decoration</li>
 			<li>Misc</li>
 		</subCategories>
 	</TeleCore.SubMenuGroupDef>
@@ -50,36 +50,36 @@
 	<TeleCore.SubMenuCategoryDef>
 		<defName>Structure</defName>
 		<label>Structure</label>
-	</TeleCore.SubMenuCategoryDef>  
-  
-	<TeleCore.SubMenuCategoryDef>
-		<defName>Decoration</defName>
-		<label>Decoration</label>
-	</TeleCore.SubMenuCategoryDef>  
+	</TeleCore.SubMenuCategoryDef>
 	
 	<TeleCore.SubMenuCategoryDef>
 		<defName>Processing</defName>
 		<label>Processing</label>
-	</TeleCore.SubMenuCategoryDef> 
-
-	<TeleCore.SubMenuCategoryDef>
-		<defName>Pollution</defName>
-		<label>Pollution</label>
-	</TeleCore.SubMenuCategoryDef> 
-	
-	<TeleCore.SubMenuCategoryDef>
-		<defName>Defense</defName>
-		<label>Defense</label>
 	</TeleCore.SubMenuCategoryDef>
 	
 	<TeleCore.SubMenuCategoryDef>
 		<defName>Research</defName>
 		<label>Research</label>
-	</TeleCore.SubMenuCategoryDef>  
+	</TeleCore.SubMenuCategoryDef>
+	
+	<TeleCore.SubMenuCategoryDef>
+		<defName>Defense</defName>
+		<label>Defense</label>
+	</TeleCore.SubMenuCategoryDef>
+
+	<TeleCore.SubMenuCategoryDef>
+		<defName>Decoration</defName>
+		<label>Decoration</label>
+	</TeleCore.SubMenuCategoryDef>
   
 	<TeleCore.SubMenuCategoryDef>
 		<defName>Misc</defName>
 		<label>Misc</label>
-	</TeleCore.SubMenuCategoryDef>  
+	</TeleCore.SubMenuCategoryDef>
+
+	<TeleCore.SubMenuCategoryDef>
+		<defName>Pollution</defName>
+		<label>Pollution</label>
+	</TeleCore.SubMenuCategoryDef> 
 	
 </Defs>
