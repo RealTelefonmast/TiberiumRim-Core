@@ -33,8 +33,9 @@
 			<li>Processing</li>
 			<li>Research</li>
 			<li>Defense</li>
-			<li>Decoration</li>
 			<li>Misc</li>
+			<li>Superweapon</li>
+
 		</subCategories>
 	</TeleCore.SubMenuGroupDef>
 
@@ -66,15 +67,15 @@
 		<defName>Defense</defName>
 		<label>Defense</label>
 	</TeleCore.SubMenuCategoryDef>
-
-	<TeleCore.SubMenuCategoryDef>
-		<defName>Decoration</defName>
-		<label>Decoration</label>
-	</TeleCore.SubMenuCategoryDef>
   
 	<TeleCore.SubMenuCategoryDef>
 		<defName>Misc</defName>
 		<label>Misc</label>
+	</TeleCore.SubMenuCategoryDef>
+
+	<TeleCore.SubMenuCategoryDef>
+		<defName>Superweapon</defName>
+		<label>Superweapon</label>
 	</TeleCore.SubMenuCategoryDef>
 
 	<TeleCore.SubMenuCategoryDef>
