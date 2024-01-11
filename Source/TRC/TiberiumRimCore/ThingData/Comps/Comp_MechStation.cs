@@ -107,8 +107,10 @@ public class Comp_MechStation : Comp_Upgradable, IMechGarage<MechanicalPawn>
 public class MechRecipeDef : Def
 {
     public MechanicalPawnKindDef mechDef;
+    //public List<IngredientCount> costList;
     public List<ThingDefCountClass> costList;
     public string graphicPath;
+    public int workCost;
 }
 
 public class CompProperties_MechStation : CompProperties_Upgrade
