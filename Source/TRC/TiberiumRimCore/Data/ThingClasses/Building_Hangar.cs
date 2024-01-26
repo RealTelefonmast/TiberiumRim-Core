@@ -4,11 +4,27 @@ namespace TR.ThingClasses;
 
 public class Building_Hangar : TRBuildingPrototype
 {
-    private MechConstructionStack _stack;
+    private MechConstructionBillStack billStack;
     
     public override void SpawnSetup(Map map, bool respawningAfterLoad)
     {
         base.SpawnSetup(map, respawningAfterLoad);
-        _stack = new MechConstructionStack();
+        billStack = new MechConstructionBillStack();
+    }
+
+    public override void Tick()
+    {
+        base.Tick();
+        billStack.Tick();
+    }
+    
+    public void AddMechConstructionBill(MechRecipeDef recipe)
+    {
+        billStack.AddRecipe(recipe);
+    }
+
+    internal void MechConstructionFinished(MechConstructionBill bill)
+    {
+        
     }
 }
