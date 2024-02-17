@@ -24,7 +24,7 @@ namespace TR
         {
             this.parentComp = this.parent?.GetComp<Comp_DroneStation>();
             if(parent == null)
-                Log.Warning("RepairDrone Spawned without parent");
+               TRLog.Warning("RepairDrone Spawned without parent");
             base.SpawnSetup(map, respawningAfterLoad);
         }
 

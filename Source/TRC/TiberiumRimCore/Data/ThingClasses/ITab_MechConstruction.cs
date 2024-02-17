@@ -36,7 +36,7 @@ public class ITab_MechConstruction : ITab
         Rect rect2 = new Rect(0f, 0f, 150f, 29f);
         if (Widgets.ButtonText(rect2, "AddBill".Translate(), true, true, true, null))
         {
-            Find.WindowStack.Add(new FloatMenu(RecipeOptions()));
+            Find.WindowStack.Add(new FloatMenu(MechStation.RecipeOptions(Hangar)));
         }
         
         Text.Anchor = TextAnchor.UpperLeft;
@@ -44,7 +44,7 @@ public class ITab_MechConstruction : ITab
         
         //Draw Bills
         //Bills are drawn as icon of the thing, label and a progressbar (first for resources collected, second for time)
-        var bills = Hangar.Bills.All;
+        var bills = Hangar.Bills.Queue;
         
         var billListHeight = (BillSize.y + billPadding) * bills.Count;
         var billAreaRect = new Rect(0, 35f, rect.width, rect.height - 35f);
@@ -53,15 +53,16 @@ public class ITab_MechConstruction : ITab
         var curY = 0;
         var indexer = 0;
         Widgets.BeginScrollView(billAreaRect, ref scrollPosition, billViewRect, true);
-        
-        foreach (var bill in bills)
+
+        for (var i = 0; i < bills.Count; i++)
         {
-            var billRect = new Rect(0, curY, BillSize.x, BillSize.y);
+            var bill = bills[i];
+            var billRect = new Rect(0, curY, rect.width, BillSize.y);
             DrawBill(billRect, bill, indexer);
             curY += (int)BillSize.y + (int)billPadding;
             indexer++;
         }
-        
+
         Widgets.EndScrollView();
         Widgets.EndGroup();
         
@@ -112,21 +113,6 @@ public class ITab_MechConstruction : ITab
             
         }
 
-    }
-
-    private List<FloatMenuOption> cachedOptions;
-    
-    private List<FloatMenuOption> RecipeOptions()
-    {
-        if(cachedOptions != null)
-            return cachedOptions;
-
-        cachedOptions = new List<FloatMenuOption>();
-        foreach (var recipe in MechStation.Props.mechRecipes)
-        {
-            cachedOptions.Add(new FloatMenuOption(recipe.LabelCap, () => Hangar.AddMechConstructionBill(recipe), recipe.mechDef.race));
-        }
-        return cachedOptions;
     }
 }
 

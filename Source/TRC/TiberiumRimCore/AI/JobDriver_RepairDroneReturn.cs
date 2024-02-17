@@ -11,7 +11,7 @@ public class ThinkNode_ConditionalRepair : ThinkNode_Conditional
         var drone = pawn as RepairDrone;
         var comp = drone.parentComp;
         if (!comp.AnyMechAvailableForRepair) return false;
-        return pawn.CurJobDef != DefDatabase<JobDef>.GetNamed("RepairMechanicalPawn");
+        return pawn.CurJobDef != TRCDefOf.RepairMechanicalPawn;
     }
 }
 
@@ -19,7 +19,7 @@ public class JobGiver_RepairDroneReturn : ThinkNode_JobGiver
 {
     public override Job TryGiveJob(Pawn pawn)
     {
-        var jobDef = DefDatabase<JobDef>.GetNamed("ReturnFromRepair");
+        var jobDef = TRCDefOf.ReturnFromRepair;
         var drone = pawn as RepairDrone;
         var job = JobMaker.MakeJob(jobDef, drone.ParentBuilding);
         return job;

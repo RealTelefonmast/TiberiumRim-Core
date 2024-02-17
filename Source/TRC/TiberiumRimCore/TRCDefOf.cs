@@ -29,4 +29,7 @@ public class TRCDefOf
     //
     public static JobDef DoMechConstructionBill;
     public static ThingGroupDef MechHangars;
+    
+    public static JobDef RepairMechanicalPawn;
+    public static JobDef ReturnFromRepair;
 }

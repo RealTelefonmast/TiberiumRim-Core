@@ -16,6 +16,7 @@ public class MechConstructionBillStack
     public bool HasBillWaiting => CurrentItem is { IsPreparing: true };
     public MechConstructionBill CurBill => CurrentItem;
     public IReadOnlyCollection<MechConstructionBill> All => _queue;
+    internal List<MechConstructionBill> Queue => _queue;
     
     public MechConstructionBill CurrentItem => _queue.Count > 0 ? _queue.First() : null;
     
@@ -30,7 +31,7 @@ public class MechConstructionBillStack
     {
         if (_queue.Count <= 0) return;
 
-        if (CurrentItem is { IsPreparing: false })
+        if (CurrentItem is { IsPreparing: false , IsFinished: false})
         {
             CurrentItem.TickProgress();
             return;

@@ -20,18 +20,6 @@ public class WorkGiver_DoMechConstructionBill : WorkGiver_Scanner
         return pawn.Map.ThingGroupCache().ThingsOfGroup(TRCDefOf.MechHangars);
     }
 
-    public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
-    {
-        if (t is Building_Hangar hangar)
-        {
-            if (hangar.Bills is { HasBillWaiting: true })
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public override Job JobOnThing(Pawn pawn, Thing t, bool forced = false)
     {
         if (t.Faction != pawn.Faction) return null;
@@ -44,10 +32,10 @@ public class WorkGiver_DoMechConstructionBill : WorkGiver_Scanner
                 return ResourceDeliverJobFor(pawn, hangar);
             }
         }
-        return base.JobOnThing(pawn, t, forced);
+        return null;
     }
 
-    protected Job ResourceDeliverJobFor(Pawn pawn, Building_Hangar hangar)
+    private static Job ResourceDeliverJobFor(Pawn pawn, Building_Hangar hangar)
     {
 	    missingResources.Clear();
 	    foreach (var need in hangar.Bills.CurBill.MissingResources)

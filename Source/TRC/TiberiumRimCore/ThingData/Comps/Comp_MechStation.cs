@@ -101,6 +101,21 @@ public class Comp_MechStation : Comp_Upgradable, IMechGarage<MechanicalPawn>
     {
         return (MechanicalPawn) GenSpawn.Spawn(mech, parent.InteractionCell, parent.Map);
     }
+    
+    private List<FloatMenuOption> cachedOptions;
+    
+    internal List<FloatMenuOption> RecipeOptions(Building_Hangar hangar)
+    {
+        if(!cachedOptions.NullOrEmpty())
+            return cachedOptions;
+
+        cachedOptions = new List<FloatMenuOption>();
+        foreach (var recipe in Props.mechRecipes)
+        {
+            cachedOptions.Add(new FloatMenuOption(recipe.LabelCap, () => hangar.AddMechConstructionBill(recipe), recipe.mechDef.race));
+        }
+        return cachedOptions;
+    }
 
 }
 
