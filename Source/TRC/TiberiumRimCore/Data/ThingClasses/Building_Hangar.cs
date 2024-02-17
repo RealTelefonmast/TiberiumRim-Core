@@ -1,26 +1,34 @@
-﻿using Verse;
+﻿using HotSwap;
+using RimWorld;
+using Verse;
 
-namespace TR.ThingClasses;
+namespace TR;
 
+[HotSwappable]
 public class Building_Hangar : TRBuildingPrototype
 {
-    private MechConstructionBillStack billStack;
+    private MechConstructionBillStack _billStack;
     
+    public MechConstructionBillStack Bills => _billStack;
+
+
     public override void SpawnSetup(Map map, bool respawningAfterLoad)
     {
         base.SpawnSetup(map, respawningAfterLoad);
-        billStack = new MechConstructionBillStack();
+        _billStack = new MechConstructionBillStack(this);
     }
 
     public override void Tick()
     {
+        if(PowerComp is CompPowerTrader { PowerOn: false })
+            return;
+        _billStack.Tick();
         base.Tick();
-        billStack.Tick();
     }
     
     public void AddMechConstructionBill(MechRecipeDef recipe)
     {
-        billStack.AddRecipe(recipe);
+        _billStack.Add(recipe);
     }
 
     internal void MechConstructionFinished(MechConstructionBill bill)

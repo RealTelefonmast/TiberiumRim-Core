@@ -1,30 +1,43 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
+using TeleCore.Primitive;
+using UnityEngine;
 using Verse;
+using Verse.AI;
 
 namespace TR;
 
 public class MechConstructionBillStack
 {
-    private MechConstructionBill _curItem;
+    private Building_Hangar _parent;
     private List<MechConstructionBill> _queue;
+    
+    public bool HasBillWaiting => CurrentItem is { IsPreparing: true };
+    public MechConstructionBill CurBill => CurrentItem;
+    public IReadOnlyCollection<MechConstructionBill> All => _queue;
+    
+    public MechConstructionBill CurrentItem => _queue.Count > 0 ? _queue.First() : null;
+    
+    
+    public MechConstructionBillStack(Building_Hangar parent)
+    {
+        _parent = parent;
+        _queue = new List<MechConstructionBill>();
+    }
     
     public void Tick()
     {
         if (_queue.Count <= 0) return;
 
-        if (_curItem is { IsFinished: false })
+        if (CurrentItem is { IsPreparing: false })
         {
-            _curItem.TickProgress();
+            CurrentItem.TickProgress();
             return;
         }
         
-        var item = _queue[0];
-        if (item.TryStartNow())
-        {
-            _curItem = item;
-        }
+        if(CurrentItem is {IsFinished: true})
+            Finish();
     }
 
     public void Begin(MechConstructionBill bill)
@@ -34,7 +47,14 @@ public class MechConstructionBillStack
 
     public void Finish()
     {
-        
+        var item = CurrentItem;
+        _queue.Remove(item);
+        //Spawn mech
+        PawnKindDef kind = item.Recipe.mechDef;
+        Pawn pawn = PawnGenerator.GeneratePawn(new PawnGenerationRequest(kind, _parent.Faction, PawnGenerationContext.NonPlayer, -1, false, false, true, true, false, 1f, false, true, false, true, true, false, false, false, false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, false, false, false, false, null, null, null, null, null, 0f, DevelopmentalStage.Newborn, null, null, null, false));
+        GenSpawn.Spawn(pawn, _parent.Position, _parent.Map);
+        var freeSpot = CellFinder.RandomClosewalkCellNear(_parent.Position, _parent.Map, _parent.RotatedSize.MagnitudeManhattan);
+        pawn.jobs.StartJob(new Job(JobDefOf.Goto, freeSpot), JobCondition.InterruptForced);
     }
 
     public void Notify_Reordered(MechRecipeDef def, int newIndex)
@@ -44,55 +64,76 @@ public class MechConstructionBillStack
         _queue.Insert(newIndex, bill);
     }
     
-    public void AddRecipe(MechRecipeDef recipe)
+    public void Add(MechRecipeDef recipe)
     {
-        _queue.Add(new MechConstructionBill(recipe));
+        var bill = new MechConstructionBill(recipe);
+        _queue.Add(bill);
+    }
+
+    public void Delete(MechConstructionBill bill)
+    {
+        _queue.Remove(bill);
+        //TODO: Refund
+    }
+    
+    public void Notify_AddedResources(Thing thing, int count)
+    {
+        if (thing.stackCount != count)
+        {
+            TRLog.Warning($"Something is wrong: {thing} has a stack count of {thing.stackCount} but we are trying to add {count} to the bill.");
+        }
+        CurrentItem.Notify_ResourceAdded(thing, thing.stackCount);
     }
 }
 
 public class MechConstructionBill
 {
-    private MechRecipeDef _curRecipe;
-    
-    private DefValueStack<ThingDef> _input;
-    private bool _isActive;
-    private bool _isPaid;
+    private readonly MechRecipeDef _def;
+    private bool isSelected;
+    private DefValueStack<ThingDef, int> _inputCache;
     private int _progress;
     
-    public MechRecipeDef Recipe => _curRecipe;
-    public bool IsFinished => _progress < _curRecipe.workCost;
+    public bool IsPreparing => MissingResources.Any();
+    public bool IsFinished => _progress >= _def.workCost;
     
-    public MechConstructionBill(MechRecipeDef recipe)
-    {
-        _curRecipe = recipe;
-        _input = new List<ThingDefCount>();
-    }
+    public float ProgressPercent => _progress / (float)_def.workCost;
+    public float ItemProgress => _inputCache.TotalValue / (float)_def.costList.Sum(c => c.count);
     
-    public void AddInput(ThingDefCount input)
+    public string ProgressLabel => $"{_progress}/{_def.workCost}";
+    public string ItemProgressLabel => $"{_inputCache.TotalValue}/{_def.costList.Sum(c => c.count)}";
+
+    public MechRecipeDef Recipe => _def;
+    
+    public IEnumerable<ThingDefCount> MissingResources
     {
+        get
+        {
+            foreach (var needed in _def.costList)
+            {
+                var left = needed.count - _inputCache[needed.thingDef].Value;
+                if (left > 0)
+                    yield return new ThingDefCount(needed.thingDef, left);
+            }
+        }
     }
 
-    public void CheckBeginNow()
+    public MechConstructionBill(MechRecipeDef recipeDef)
     {
-        _isPaid = _curRecipe.costList.All(cost => _input.Any(input => input.thingDef == cost.thingDef && input.Count >= cost.count));
+        _def = recipeDef;
+    }
+
+    public void Notify_Selected(bool selected)
+    {
+        isSelected = selected;
+    }
+    
+    public void Notify_ResourceAdded(Thing thing, int count)
+    {
+        _inputCache += (thing.def, count);
     }
 
     public void TickProgress()
     {
-        if(!IsFinished)
-            _progress += 10;
-        
-    }
-
-    public bool CanStartNow()
-    {
-        CheckBeginNow();
-        return _isPaid;
-    }
-    
-    public bool TryStartNow()
-    {
-        if (!CanStartNow()) return false;
-        return _isActive = true;
+        _progress = Mathf.Clamp(_progress + 10, 0, _def.workCost);
     }
 }

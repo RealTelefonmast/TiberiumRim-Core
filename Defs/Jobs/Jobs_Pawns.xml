@@ -8,4 +8,12 @@
 		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
 	</JobDef>
 	
+
+	<JobDef>
+		<defName>DoMechConstructionBill</defName>
+		<driverClass>TR.JobDriver_DoMechConstructionBill</driverClass>
+		<reportString>hauling resources for mech construction.</reportString>
+		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+	</JobDef>
+
 </Defs>

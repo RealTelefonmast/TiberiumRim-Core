@@ -25,4 +25,8 @@ public class TRCDefOf
     
     //FleshTypes
     public static FleshTypeDef Mechanical;
+    
+    //
+    public static JobDef DoMechConstructionBill;
+    public static ThingGroupDef MechHangars;
 }

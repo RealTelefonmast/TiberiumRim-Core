@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TeleCore;
+using UnityEngine;
 using Verse;
 
 namespace TR;
@@ -124,4 +125,9 @@ public static class TRContent
 
     public static readonly Material ForcedTargetLineMat =
         MaterialPool.MatFrom(GenDraw.LineTexPath, ShaderDatabase.Transparent, new Color(1f, 0.5f, 0.5f));
+    
+    
+    public static readonly Texture2D GreenBar = SolidColorMaterials.NewSolidColorTexture(TColor.Green);
+    public static readonly Texture2D BlueBar = SolidColorMaterials.NewSolidColorTexture(TColor.NiceBlue);
+    public static readonly Texture2D BarBG = SolidColorMaterials.NewSolidColorTexture(TColor.BGLighter);
 }

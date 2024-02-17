@@ -33,4 +33,17 @@
 		<prioritizeSustains>true</prioritizeSustains>
 	</WorkGiverDef>
 	
+	<WorkGiverDef>
+		<defName>DoMechConstruction</defName>
+		<label>begin mech construction</label>
+		<giverClass>TR.WorkGiver_DoMechConstructionBill</giverClass>
+		<workType>Crafting</workType>
+		<priorityInType>100</priorityInType>
+		<verb>begin construction</verb>
+		<gerund>beginning construction</gerund>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+	</WorkGiverDef>
+
 </Defs>

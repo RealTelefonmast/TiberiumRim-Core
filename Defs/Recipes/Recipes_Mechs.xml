@@ -45,9 +45,14 @@
 
 	<TR.MechRecipeDef>
 		<defName>MakeRepairDroneCommon</defName>
-		<label></label>
+		<label>Construct Repair Drone</label>
 		<graphicPath>Pawns/Mechanical/Common/RepairDrone</graphicPath>
 		<mechDef>RepairDrone_Common</mechDef>
+		<workCost>2500</workCost>
+		<costList>
+			<Steel>100</Steel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			</costList>
 	</TR.MechRecipeDef>	
 	
 </Defs>
